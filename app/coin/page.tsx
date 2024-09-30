@@ -1,7 +1,7 @@
 import React from "react";
 import Coinbox from "./coinbox"
 
-const Coin = () => {
+const CoinPage = () => {
     return (
         <div>
             <div className="p-8 bg-yellow-200 text-center rounded-md">
@@ -16,4 +16,4 @@ const Coin = () => {
     );
 };
 
-export default Coin;
+export default CoinPage;

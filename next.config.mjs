@@ -1,8 +1,7 @@
 export default {
-    output: 'export',
     images: {
       unoptimized: true,
     },
-    basePath: '/Collecture',
+    basePath: '/collecture',
   };
   
