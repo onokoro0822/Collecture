@@ -3,6 +3,6 @@ export default {
     images: {
       unoptimized: true,
     },
-    basePath: '/your-repository-name',
+    basePath: '/Collecture',
   };
   
