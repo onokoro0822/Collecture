@@ -1,4 +1,6 @@
-import React from "react";
+// app/coin/coinbox.tsx
+"use client";
+import UploadBox from "./uploadbox"
 
 const Coinbox = () => {
   // 昭和元年（1926）から平成31年（2019）までのデータを生成
@@ -15,12 +17,12 @@ const Coinbox = () => {
     const years = Array.from({ length: endYear - startYear + 1 }, (_, i) => startYear + i);
     return years.map((year) => (
         <div key={year} className="flex flex-col items-center justify-center rounded-md shadow-md gap-2">
-            <div className="w-[150px] h-[150px] bg-blue-500 text-white flex items-center justify-center rounded-md shadow-md">
-                未取得
-            </div>
-            <div>
-                {year === startYear ? `${eraName}元年` : `${eraName}${year - startYear + 1}年`}
-            </div>
+          <div>
+            <UploadBox />
+          </div>
+          <div>
+            {year === startYear ? `${eraName}元年` : `${eraName}${year - startYear + 1}年`}
+          </div>
         </div>
 
     ));
