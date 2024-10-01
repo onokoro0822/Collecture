@@ -23,8 +23,7 @@ jobs:
         npm install
         npm run build  # Next.jsアプリケーションをビルド
 
-    - name: Deploy built files to server
-      run: |
-        rsync -avz --exclude='.git' --exclude='.github' --delete .next onokoro@v2008.coreserver.jp:~/public_html/collecture/.next
-        rsync -avz --exclude='.git' --exclude='.github' --delete public onokoro@v2008.coreserver.jp:~/public_html/collecture/public
-        rsync -avz --exclude='.git' --exclude='.github' --delete package.json onokoro@v2008.coreserver.jp:~/public_html/collecture/
+        - name: Deploy to server
+        run: |
+          rsync -avz --exclude='.git' --exclude='.github' --delete ./ onokoro@v2008.coreserver.jp:~/domains/onokoro-creation.com/collecture/
+      
