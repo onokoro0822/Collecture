@@ -30,11 +30,7 @@ const Coinbox = () => {
 
   return (
     <div
-      className="grid gap-4 p-8"
-      style={{
-        gridTemplateColumns: `repeat(auto-fill, minmax(180px, 1fr))`,
-        gridAutoRows: '250px',
-      }}
+      className="grid gap-4 p-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
     >
       {/* 昭和のボックスを生成 */}
       {generateEraBoxes(showaStartYear, showaEndYear, "昭和")}
