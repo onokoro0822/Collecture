@@ -18,7 +18,13 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     
-    - name: Deploy to server
+    - name: Install Dependencies
       run: |
-        ssh -o StrictHostKeyChecking=no onokoro@v2008.coreserver.jp "mkdir -p ~/public_html/collecture/"
-        rsync -avz --exclude='.git' --exclude='.github' --delete ./ onokoro@v2008.coreserver.jp:~/public_html/collecture/
+        npm install
+        npm run build  # Next.jsアプリケーションをビルド
+
+    - name: Deploy built files to server
+      run: |
+        rsync -avz --exclude='.git' --exclude='.github' --delete .next onokoro@v2008.coreserver.jp:~/public_html/collecture/.next
+        rsync -avz --exclude='.git' --exclude='.github' --delete public onokoro@v2008.coreserver.jp:~/public_html/collecture/public
+        rsync -avz --exclude='.git' --exclude='.github' --delete package.json onokoro@v2008.coreserver.jp:~/public_html/collecture/
