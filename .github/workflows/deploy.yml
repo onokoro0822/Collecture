@@ -11,13 +11,22 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
 
     - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.5.3
+      uses: webfactory/ssh-agent@v0.5.4
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-    
+
+    - name: Add server to known_hosts
+      run: |
+        ssh-keyscan -H v2008.coreserver.jp >> ~/.ssh/known_hosts
+
     - name: Install Dependencies
       run: |
         npm install
@@ -25,4 +34,4 @@ jobs:
 
     - name: Deploy to server
       run: |
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude='.git' --exclude='.github' --delete ./ onokoro@v2008.coreserver.jp:~/domains/onokoro-creation.com/public_html/collecture/
+        rsync -avz --progress -e "ssh -o StrictHostKeyChecking=no" --exclude='.git' --exclude='.github' --delete ./ onokoro@v2008.coreserver.jp:~/domains/onokoro-creation.com/public_html/collecture/
