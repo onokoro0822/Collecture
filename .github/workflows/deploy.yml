@@ -21,8 +21,8 @@ jobs:
     - name: Install Dependencies
       run: |
         npm install
-        npm run build  # Next.jsアプリケーションをビルド
+        NODE_ENV=production npm run build  # Next.jsアプリケーションをプロダクションモードでビルド
 
     - name: Deploy to server
       run: |
-        rsync -avz --exclude='.git' --exclude='.github' --delete ./ onokoro@v2008.coreserver.jp:~/domains/onokoro-creation.com/collecture/
+        rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude='.git' --exclude='.github' --delete ./ onokoro@v2008.coreserver.jp:~/domains/onokoro-creation.com/collecture/
