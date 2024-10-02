@@ -25,4 +25,4 @@ jobs:
 
     - name: Deploy to server
       run: |
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude='.git' --exclude='.github' --delete ./ onokoro@v2008.coreserver.jp:~/domains/onokoro-creation.com/collecture/
+        rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude='.git' --exclude='.github' --delete ./ onokoro@v2008.coreserver.jp:~/domains/onokoro-creation.com/public_html/collecture/
