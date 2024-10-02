@@ -1,8 +1,17 @@
-"use client";
-
 import React from "react";
 import Coinbox from "../../coin/coinbox";
 import Link from "next/link";
+
+// generateStaticParams関数を定義して、ビルド時に生成するパスを指定します
+export const generateStaticParams = async () => {
+  // 有効な硬貨のリスト
+  const validCoins = ["1", "5", "10", "50", "100", "500"];
+
+  // 各硬貨に対してパラメータを生成
+  return validCoins.map((coin) => ({
+    coin,
+  }));
+};
 
 const CoinPage = ({ params }: { params: { coin: string } }) => {
   const { coin } = params;
