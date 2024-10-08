@@ -7,6 +7,14 @@ const HomePage = () => {
 
   return (
     <div className="p-8">
+      <h1 className="text-center mb-4">サインインする</h1>
+      <div className="flex justify-center">
+        <Link href="/signin">
+          <div className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+            サインイン
+          </div>
+        </Link>
+      </div>
       <h1 className="text-center mb-4">硬貨の登録・閲覧ページへ</h1>
       <div className="flex flex-wrap gap-4 justify-center">
         {coins.map((coin) => (
