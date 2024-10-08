@@ -3,9 +3,10 @@ import React from "react";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import './globals.css';
+import DesignProvider from "../common/providers/DesignProvider"
 
 export const metadata = {
-  title: "Collecture",
+  title: "collecture",
   description: "コレクション管理アプリ",
 };
 
@@ -19,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Header />
-        <main>{children}</main>
+        <DesignProvider>{children}</DesignProvider>
         <Footer />
       </body>
     </html>
